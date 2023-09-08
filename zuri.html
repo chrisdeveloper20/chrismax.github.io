@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Data Showcase</title>
+        <style>
+            /* Add your CSS styles here */
+            /* Style the container div */
+        
+            /* Container styles */
+            .container {
+              text-align: center;
+              margin: 50px auto;
+              padding: 20px;
+              border: 2px solid #333;
+              border-radius: 10px;
+                max-width: 400px;
+              background-color: #f7f7f7;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+           }
+
+            /* Style the profile picture */
+            #slackDisplayImage {
+                width: 200px;
+                height: 330px;
+                background-size: cover;
+            }
+               
+              /* GitHub URL styles */
+              [data-testid="githubURL"] {
+                font-weight: bold;
+                  text-decoration: none;
+                  color: #007BFF;
+                  transition: color 0.3s;
+            }
+
+                  /* Slack Name styles */
+                .data-item[data-testid="slackUserName"] {
+                font-weight: bold;
+                    margin-bottom: 20px;
+            }  
+               
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Slack Name -->
+            <div class="data-item" data-testid="slackUserName">
+                <label>Slack Name:</label>
+                <span>Chris Andrew</span>
+                <br><br>
+            <!-- Slack Display Picture -->
+            <img src="chris.jpg" alt="Your Slack Username" id="slackDisplayImage" data-testid="slackDisplayImage">
+            <br><br>
+    
+            <!-- Current Day of the Week -->
+            <label for="currentDayOfTheWeek">Current Day of the Week:</label>
+            <span id="currentDayOfTheWeek" data-testid="currentDayOfTheWeek">Loading...</span>
+            <br><br>
+    
+            <!-- Current UTC Time -->
+            <label for="currentUTCTime">Current UTC Time (milliseconds):</label>
+            <span id="currentUTCTime" data-testid="currentUTCTime">Loading...</span>
+            <br><br>
+    
+            <!-- Track -->
+            <label for="myTrack">Track:</label>
+            <span id="myTrack" data-testid="myTrack">Frontend</span>
+            <br><br>
+    
+            <!-- GitHub URL -->
+            <label for="githubURL">GitHub URL:</label>
+            <a href="https://github.com/chrisdeveloper20/HNGx-Zuri-internship" id="gitHub URL" data-testid="githubURL">GitHub repository</a>
+        </div>
+    
+        <script>
+            // JavaScript code to update real-time data
+            function updateCurrentDayAndTime() {
+                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                const currentDate = new Date();
+                const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+                const currentUTCTime = currentDate.getTime();
+    
+                document.getElementById("currentDayOfTheWeek").textContent = currentDayOfWeek;
+                document.getElementById("currentUTCTime").textContent = currentUTCTime;
+            }
+    
+            // Call the function to update the current day and time immediately
+            updateCurrentDayAndTime();
+    
+            // You can set an interval to update the time periodically if needed
+            setInterval(updateCurrentDayAndTime, 1000); // Update every 1 second
+        </script>
+    </body>
+    </html>
